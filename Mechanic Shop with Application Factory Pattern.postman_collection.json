@@ -103,7 +103,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://127.0.0.1:5000/customers",
+          "raw": "http://127.0.0.1:5000/customers/",
           "protocol": "http",
           "host": [
             "127",
@@ -113,7 +113,8 @@
           ],
           "port": "5000",
           "path": [
-            "customers"
+            "customers",
+            ""
           ]
         }
       },
@@ -128,7 +129,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://127.0.0.1:5000/customers/3",
+          "raw": "http://127.0.0.1:5000/customers/1",
           "protocol": "http",
           "host": [
             "127",
@@ -139,7 +140,7 @@
           "port": "5000",
           "path": [
             "customers",
-            "3"
+            "1"
           ]
         }
       },
@@ -190,7 +191,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"name\": \"Bobo\",\n    \"number\": \"415-999-9999\",\n    \"email\": \"bobo@gmail.com\"\n}",
+          "raw": "{\n    \"name\": \"Victor\",\n    \"number\": \"999-999-9999\",\n    \"email\": \"victor@gmail.com\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -198,7 +199,7 @@
           }
         },
         "url": {
-          "raw": "http://127.0.0.1:5000/customers",
+          "raw": "http://127.0.0.1:5000/customers/",
           "protocol": "http",
           "host": [
             "127",
@@ -208,7 +209,8 @@
           ],
           "port": "5000",
           "path": [
-            "customers"
+            "customers",
+            ""
           ]
         }
       },
@@ -367,6 +369,205 @@
             "service-tickets",
             "2",
             "remove-mechanic",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Inventory part",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/inventory/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "inventory",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all inventory",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Get inventory item by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/inventory/1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "inventory",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update inventory item",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"price\": 99.99\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/inventory/1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "inventory",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add part to service ticket Copy",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/service-tickets/1/add-part/2",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "service-tickets",
+            "1",
+            "add-part",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\": \"brian@gmail.com\",\n    \"password\": \"123456\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/customers/login",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "customers",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get my tickets",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Nzg1NDMzOTgsImlhdCI6MTc3ODUzOTc5OCwic3ViIjoiMiJ9.5lwg7IrRfmpdEO6OHbYqOnJPsJEEmithftmintnl_JA",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/customers/my-tickets",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "customers",
+            "my-tickets"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete parts in inventory",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/inventory/1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "inventory",
             "1"
           ]
         }

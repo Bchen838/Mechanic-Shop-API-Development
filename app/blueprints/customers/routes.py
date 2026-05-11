@@ -48,7 +48,7 @@ def get_my_tickets(customer_id):
 
 # CREATE Customer 
 @customers_bp.route('/', methods=['POST'])
-@limiter.limit("5 per minute")
+@limiter.limit("3 per minute")
 def create_customer():
     try:
         customer_data = customer_schema.load(request.json)
