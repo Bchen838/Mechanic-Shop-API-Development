@@ -39,7 +39,7 @@ def update_mechanic(mechanic_id):
         return jsonify({"error": "Mechanic not found."}), 404
     
     try:
-        mechanic_data = mechanic_schema.load(request.json)
+        mechanic_data = mechanic_schema.load(request.json, partial=True)
     except ValidationError as e:
         return jsonify(e.messages), 400
     
