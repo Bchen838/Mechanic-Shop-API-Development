@@ -141,4 +141,4 @@ class TestMechanic(unittest.TestCase):
         response = self.client.put('/service-tickets/999/add-part/1')
 
         self.assertEqual(response.status_code, 404)
-        self.assertEqual(response.json['error'], "Service Ticket not found.")
+        self.assertEqual(response.json['error'], "Service ticket not found.")
