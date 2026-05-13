@@ -71,7 +71,6 @@ The main resources in this project are:
 
 - Create a mechanic
 - Retrieve all mechanics
-- Retrieve a specific mechanic by ID
 - Update mechanic information
 - Delete a mechanic
 - Retrieve mechanics ordered by who has worked on the most service tickets
