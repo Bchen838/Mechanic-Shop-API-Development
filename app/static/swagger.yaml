@@ -5,10 +5,10 @@ info:
   description: "Interactive documentation for a Flask API that manages customers, mechanics, service tickets, and inventory."
   version: "1.0.0"
 
-host: "127.0.0.1:5000"
+host: "mechanic-shop-api-development-ce62.onrender.com"
 
 schemes:
-  - "http"
+  - "https"
 
 consumes:
   - "application/json"
