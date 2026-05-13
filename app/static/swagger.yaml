@@ -191,6 +191,7 @@ paths:
         400:
           description: "Validation error or mechanic already exists"
 
+  /mechanics/{mechanic_id}:
     get:
       tags:
         - Mechanics
