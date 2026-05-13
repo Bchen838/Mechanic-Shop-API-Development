@@ -204,25 +204,6 @@ paths:
             items:
               $ref: "#/definitions/MechanicResponse"
 
-  /mechanics/{mechanic_id}:
-    get:
-      tags:
-        - Mechanics
-      summary: "Get Mechanic by ID"
-      description: "Retrieves a specific mechanic by ID."
-      parameters:
-        - in: "path"
-          name: "mechanic_id"
-          type: "integer"
-          required: true
-          description: "Mechanic ID"
-      responses:
-        200:
-          description: "Mechanic retrieved successfully"
-          schema:
-            $ref: "#/definitions/MechanicResponse"
-        404:
-          description: "Mechanic not found"
 
     put:
       tags:
