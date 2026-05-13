@@ -135,3 +135,10 @@ class TestMechanic(unittest.TestCase):
             response.json['error'],
             "Mechanic is already assigned to this ticket."
         )
+
+
+    def test_add_inventory_to_invalid_service_ticket(self):
+        response = self.client.put('/service-tickets/999/add-part/1')
+
+        self.assertEqual(response.status_code, 404)
+        self.assertEqual(response.json['error'], "Service Ticket not found.")
