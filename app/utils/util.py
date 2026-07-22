@@ -6,7 +6,11 @@ import jose
 from functools import wraps
 from flask import request, jsonify
 
-SECRET_KEY = os.environ.get('SECRET_KEY') or "a super secret, secret key"
+
+SECRET_KEY = os.environ.get('SECRET_KEY')
+if not SECRET_KEY:
+    raise ValueError("SECRET_KEY not set")
+
 
 def encode_token(customer_id):
     payload = {
