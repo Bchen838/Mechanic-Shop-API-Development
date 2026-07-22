@@ -7,6 +7,7 @@ from . import customers_bp
 from app.extensions import cache, limiter
 from app.utils.util import encode_token, token_required
 from app.blueprints.service_tickets.schemas import service_tickets_schema
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 # login route
@@ -22,7 +23,7 @@ def login():
     query = select(Customer).where(Customer.email == username)
     customer = db.session.execute(query).scalar_one_or_none()
 
-    if customer and customer.password == password:
+    if customer and check_password_hash(customer.password, password):
         auth_token = encode_token(customer.id)
 
         response = {
@@ -59,7 +60,7 @@ def create_customer():
     existing_customer = db.session.execute(query).scalars().all()
     if existing_customer:
         return jsonify({'error': 'Email already associated with an account.'}), 400
-    
+    customer_data['password'] = generate_password_hash(customer_data['password'])
     new_customer = Customer(**customer_data)
     db.session.add(new_customer)
     db.session.commit()
@@ -98,11 +99,14 @@ def update_customer(customer_id):
     if not customer:
         return jsonify({"error": "Customer not found."}), 404
     
-    try: 
+    try:
         customer_data = customer_schema.load(request.json, partial=True)
     except ValidationError as e:
         return jsonify(e.messages), 400
-    
+
+    if 'password' in customer_data:
+        customer_data['password'] = generate_password_hash(customer_data['password'])
+
     for key, value in customer_data.items():
         setattr(customer, key, value)
 

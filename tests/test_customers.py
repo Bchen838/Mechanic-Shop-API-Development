@@ -2,6 +2,7 @@ from app import create_app
 from app.models import db, Customer
 from app.utils.util import encode_token
 from datetime import date
+from werkzeug.security import generate_password_hash
 import unittest
 
 class TestCustomer(unittest.TestCase):
@@ -11,7 +12,7 @@ class TestCustomer(unittest.TestCase):
             name="Brian",
             email="brian@email.com",
             number="415-999-9999",
-            password="123456"
+            password=generate_password_hash("123456")
         )
 
         with self.app.app_context():

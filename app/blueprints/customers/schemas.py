@@ -5,6 +5,8 @@ class CustomerSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = Customer
 
+    password = ma.auto_field(load_only=True)
+
 customer_schema = CustomerSchema()
 customers_schema = CustomerSchema(many=True)
 login_schema = CustomerSchema(only=['email', 'password'])
